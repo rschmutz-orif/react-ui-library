@@ -5,6 +5,8 @@ import terser from '@rollup/plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 import pkg from './package.json' with { type: "json" };
 ;
+
+import tailwindcss from "@tailwindcss/postcss";
  
 export default {
   input:'src/index.jsx',
@@ -19,12 +21,15 @@ export default {
       presets: ['@babel/preset-env','@babel/preset-react']
     }),
     postcss({
-        minimize: true,
-        modules: true,
-        extract: false,
         config:{
             path: './postcss.config.mjs'
-        }
+        },
+        extensions: ['.css'],
+        minimize: true,
+        inject: {
+            insertAt: 'top',
+        },  
+        plugins: [tailwindcss()]
     }),
     resolve(),
     commonjs(),
