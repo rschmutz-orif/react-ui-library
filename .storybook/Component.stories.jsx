@@ -1,9 +1,10 @@
 import React from 'react';
-import { CounterComponent } from '../src/index.jsx';
+import { Counter } from '../src/index.jsx';
  
 export default {
-  component: CounterComponent,
+  component: Counter,
   title: 'Counter'
 };
  
-export const Placeholder = () => <CounterComponent />;
+export const Main = () => <Counter />;
+export const Secondary = () => <Counter secondary={true} />;
