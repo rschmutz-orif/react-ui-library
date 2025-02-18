@@ -1,6 +1,6 @@
 {
-  "name": "react-npm-package",
-  "version": "1.0.0",
+  "name": "@rsch-org/react-npm-package",
+  "version": "1.0.5",
   "description": "",
   "type": "module",
   "main": "dist/index.cjs.js",
@@ -30,7 +30,8 @@
     "postcss": "^8.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "rollup": "^4.9.2",
+    "rollup": "^4.34.8",
+    "rollup-plugin-postcss": "^4.0.2",
     "storybook": "^7.6.6",
     "tailwindcss": "^4.0.6"
   }

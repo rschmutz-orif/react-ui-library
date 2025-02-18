@@ -2,7 +2,9 @@ import babel from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
-import pkg from './package.json' assert { type: 'json' };
+import postcss from 'rollup-plugin-postcss';
+import pkg from './package.json' with { type: "json" };
+;
  
 export default {
   input:'src/index.jsx',
@@ -15,6 +17,14 @@ export default {
       babelHelpers: 'bundled',
       exclude: 'node_modules/**',
       presets: ['@babel/preset-env','@babel/preset-react']
+    }),
+    postcss({
+        minimize: true,
+        modules: true,
+        extract: false,
+        config:{
+            path: './postcss.config.mjs'
+        }
     }),
     resolve(),
     commonjs(),
